@@ -11,20 +11,32 @@
     <div>given word: <span id="word"></span></div>
     <input type = "text">
     <button>submit</button>
-    <button class="button_class">submit2</button>
-    <button class="button_class">submit3</button>
     <script>
-       const onClickButton =() => {
-        console.log('버큰클릭!');
-        }
+       const number= Number(prompt('how many players will join this game?'));
        const $button = document.querySelector('button');
-       $button.addEventListener('click', onClickButton);
-       
-       const onInput =(event) => {
-          console.log('입럅완료!',event.target.value);
-       };
        const $input = document.querySelector('input');
+       const $word =document.querySelector('#word');
+       let word; //given word. 21번째 줄 처럼 비었는지 아닌지만 확인하는 용도.
+       let newWord;//사용자가 입력한 현재 실재단어.   
+
+       
+       const onClickButton =() => {
+        if (!word){
+            newWord=word;
+            $word.textContent=word;
+        }
+
+       };
+       const onInput =(event) => {
+        newWord=event.target.value; //타자를 칠 때 입력되는 단어를 newWord에 저장. 
+       };
+        
+
+       $button.addEventListener('click', onClickButton);
        $input.addEventListener('input', onInput);
+       
+       
+       
 
     </script>
 </body>
