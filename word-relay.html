@@ -16,19 +16,30 @@
        const $button = document.querySelector('button');
        const $input = document.querySelector('input');
        const $word =document.querySelector('#word');
+       const $order=document.querySelector('#order');
        let word; //given word. 21번째 줄 처럼 비었는지 아닌지만 확인하는 용도.
        let newWord;//사용자가 입력한 현재 실재단어.   
 
        
-       const onClickButton =() => {
+       const onClickButton =() => { //비어있다면,
         if (!word){
             word=newWord;
             $word.textContent=word;
-        } else {
-            //비어 있지 않을 때 -> 단어가 맞는지 판단한다. 
+        } else {//비어있지 않다면, 단어가 맞는지 판단한다. 
+            if (word[word.length-1]===newWord[0]) {
+                word=newWord;
+                $word.textContent=word; //1)새로운 단어 입력 후 브라우저에 띄어주기
+                const order = Number($order.textContent); //2)다음 순서로 넘겨주기
+                if (order+1>number){
+                    $order.textContent=1;
+                } else {
+                    $order.textContent=order+1;
+                }
+            } else { //끝자리와 첫자리가 맞지 않는다면, 
+                alert('Game over, Word is not matched.');
+            }
         }
-
-       };
+     };
        const onInput =(event) => {
         newWord=event.target.value; //타자를 칠 때 입력되는 단어를 newWord에 저장. 
        };
@@ -37,9 +48,6 @@
        $button.addEventListener('click', onClickButton);
        $input.addEventListener('input', onInput);
        
-       
-       
-
     </script>
 </body>
 </html>
