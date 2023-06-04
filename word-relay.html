@@ -31,6 +31,8 @@
                 } else {
                     $order.textContent=order+1;
                 }
+            $input.value='';
+            $input.focus='';
         } else {//비어있지 않다면, 단어가 맞는지 판단한다. 
             if (word[word.length-1]===newWord[0]) {
                 word=newWord;
@@ -41,8 +43,12 @@
                 } else {
                     $order.textContent=order+1;
                 }
+                $input.value='';
+                $input.focus='';
             } else { //끝자리와 첫자리가 맞지 않는다면, 
                 alert('Game over, Word is not matched.');
+                $input.value='';
+                $input.focus='';
             }
         }
      };
