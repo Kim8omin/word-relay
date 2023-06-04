@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wordrelay</title>
+</head>
+<body>
+    <div>Player<span id="order">1</span></div>
+    <div>given word: <span id="word"></span></div>
+    <input type = "text">
+    <button>submit</button>
+    <button class="button_class">submit2</button>
+    <button class="button_class">submit3</button>
+    <script>
+       const onClickButton =() => {
+        console.log('버큰클릭!');
+        }
+       const $button = document.querySelector('button');
+       $button.addEventListener('click', onClickButton);
+       
+       const onInput =(event) => {
+          console.log('입럅완료!',event.target.value);
+       };
+       const $input = document.querySelector('input');
+       $input.addEventListener('input', onInput);
+
+    </script>
+</body>
+</html>

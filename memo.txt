@@ -1,0 +1,1 @@
+const number= Number(prompt('how many players will join this game?'));
