@@ -25,6 +25,12 @@
         if (!word){
             word=newWord;
             $word.textContent=word;
+            const order = Number($order.textContent); //2)다음 순서로 넘겨주기
+                if (order+1>number){
+                    $order.textContent=1;
+                } else {
+                    $order.textContent=order+1;
+                }
         } else {//비어있지 않다면, 단어가 맞는지 판단한다. 
             if (word[word.length-1]===newWord[0]) {
                 word=newWord;
